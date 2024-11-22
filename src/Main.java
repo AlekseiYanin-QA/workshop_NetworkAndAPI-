@@ -13,9 +13,7 @@ public class Main {
         stocks.sort(new Comparator<Stock>() {
             @Override
             public int compare(Stock o1, Stock o2) {
-                Float val1 = new Float(o1.getValue());
-                Float val2 = new Float(o2.getValue());
-                return val1.compareTo(val2);
+                return Float.compare(o1.getValue(), o2.getValue());
             }
         });
         System.out.println("The cheapest one was: " +
