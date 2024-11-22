@@ -10,12 +10,16 @@ public class Main {
 
         List<Stock> stocks = netUtils.getStocks();
 
+        // Можно упростить код, используя лямбда-выражение
+        // stocks.sort(Comparator.comparingLong(stock -> (long) stock.getValue()));
+
         stocks.sort(new Comparator<Stock>() {
             @Override
             public int compare(Stock o1, Stock o2) {
                 return Float.compare(o1.getValue(), o2.getValue());
             }
         });
+
         System.out.println("The cheapest one was: " +
                 stocks.get(0).getDate() + " with value " +
                 stocks.get(0).getValue());
